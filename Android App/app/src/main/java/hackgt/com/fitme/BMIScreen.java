@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -44,4 +45,10 @@ public class BMIScreen extends Activity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    public void takeQuiz(View view) {
+        Intent intent = new Intent(this, Survey.class);
+        startActivity(intent);
+    }
+
 }

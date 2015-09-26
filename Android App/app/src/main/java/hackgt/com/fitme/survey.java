@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class survey extends Activity {
+public class Survey extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

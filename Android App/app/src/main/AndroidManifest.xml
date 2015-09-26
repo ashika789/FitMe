@@ -24,6 +24,10 @@
             android:name=".BMIScreen"
             android:label="@string/title_activity_bmiscreen" >
         </activity>
+        <activity
+            android:name=".Survey"
+            android:label="@string/survey_activity" >
+        </activity>
     </application>
 
 </manifest>

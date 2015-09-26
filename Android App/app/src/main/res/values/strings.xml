@@ -3,7 +3,7 @@
     <string name="profile_name"></string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_main">MainActivity</string>
-
+    <string name="survey_activity"></string>
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_bmiscreen">BMIScreen</string>
 </resources>

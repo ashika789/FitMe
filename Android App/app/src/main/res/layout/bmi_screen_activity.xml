@@ -66,9 +66,10 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:text="Take the Quiz"
-    android:id="@+id/button2"
+    android:id="@+id/takeQuiz"
     android:layout_marginBottom="38dp"
     android:layout_alignParentBottom="true"
-    android:layout_centerHorizontal="true" />
+    android:layout_centerHorizontal="true"
+    android:onClick="takeQuiz" />
 
 </RelativeLayout>
