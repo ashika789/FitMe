@@ -3,11 +3,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:weightSum="1"
-    android:id="@+id/"
+    android:id="@+id/homePage"
     android:baselineAligned="false"
     android:orientation="vertical">
-
-
 
     <ImageView
         android:id="@+id/imageView3"
@@ -16,7 +14,7 @@
         android:adjustViewBounds="true"
         android:scaleType="fitXY"
 
-        android:src="@drawable/fitmeLogo"
+        android:src="@drawable/fitmelogo"
         android:layout_gravity="center_horizontal"
         android:layout_weight="0.33"
         android:layout_marginTop="113dp"
@@ -47,7 +45,7 @@
         android:layout_weight="0.33"
         android:layout_below="@+id/imageView3"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="63dp" />
+        android:layout_marginTop="30dp" />
 
 
 </RelativeLayout>
