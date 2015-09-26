@@ -16,7 +16,7 @@
         android:adjustViewBounds="true"
         android:scaleType="fitXY"
 
-        android:src="/Users/AshikaGanesh/Documents/Final_Github/FitMe/Android App/app/src/main/res/drawable/fitmeLogo.png"
+        android:src="@drawable/fitmeLogo"
         android:layout_gravity="center_horizontal"
         android:layout_weight="0.33"
         android:layout_marginTop="113dp"
