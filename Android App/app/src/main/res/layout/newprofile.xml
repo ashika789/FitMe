@@ -6,27 +6,77 @@
 
 
     <LinearLayout
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:weightSum="1">
+        android:layout_height="match_parent"
+        android:layout_weight="1">
 
-        <TextView
-            android:layout_width="46dp"
-            android:layout_height="42dp"
-            android:text="Profile Name"
-            android:id="@+id/ProfileName" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="1">
 
-        <EditText android:id="@+id/edit_message"
-            android:layout_width="158dp"
-            android:layout_height="53dp"
-            android:hint="@string/profile_name"
-            android:enabled="true"
-            android:layout_weight="0.28" />
+            <TextView
+                android:layout_width="46dp"
+                android:layout_height="42dp"
+                android:text="Profile Name"
+                android:id="@+id/ProfileName" />
+
+            <EditText android:id="@+id/edit_message"
+                android:layout_width="158dp"
+                android:layout_height="53dp"
+                android:hint="@string/profile_name"
+                android:enabled="true"
+                android:layout_weight="0.28" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Age"
+                android:id="@+id/textView" />
+
+            <EditText
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:ems="10"
+                android:id="@+id/editText" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Weight (lbs)"
+                android:id="@+id/textView2" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:ems="10"
+                android:id="@+id/editText2" />
+        </LinearLayout>
     </LinearLayout>
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"></LinearLayout>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Button"
+        android:id="@+id/button"
+        android:layout_weight="1"
+        android:layout_gravity="center_horizontal" />
+
 </LinearLayout>
