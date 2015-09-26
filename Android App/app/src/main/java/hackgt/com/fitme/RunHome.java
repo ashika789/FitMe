@@ -1,6 +1,7 @@
 package hackgt.com.fitme;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.content.Context;
 import android.view.View;
@@ -17,21 +18,11 @@ public class RunHome extends Activity {
     }
 
     public void getProfile(View view) {
-        overridePendingTransition(R.anim.fadein, R.anim.fadeout);
+        Intent intent = new Intent(this, NewProfile.class);
+        startActivity(intent);
+       //  overridePendingTransition(R.anim.fadein, R.anim.fadeout);
        // overridePendingTransition(R.anim.fadein, R.anim.fadeout);
-        setContentView(R.layout.newprofile);
        // overridePendingTransition(R.anim.fadein, R.anim.fadeout);
     }
 
-    public void bmiResults(View view) {
-        // overridePendingTransition(R.anim.fadein, R.anim.fadeout);
-        setContentView(R.layout.bmi_screen);
-        // overridePendingTransition(R.anim.fadein, R.anim.fadeout);
-    }
-
-//    public void surveyScreen(View view) {
-//        // overridePendingTransition(R.anim.fadein, R.anim.fadeout);
-//        setContentView(R.layout.bmi_screen);
-//        // overridePendingTransition(R.anim.fadein, R.anim.fadeout);
-//    }
 }

@@ -20,7 +20,10 @@
             android:name=".NewProfile"
             android:label="@string/app_name" >
         </activity>
-
+        <activity
+            android:name=".BMIScreen"
+            android:label="@string/title_activity_bmiscreen" >
+        </activity>
     </application>
 
 </manifest>
