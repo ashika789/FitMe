@@ -20,8 +20,21 @@ public class BMIScreen extends Activity {
         String bmi = intent.getStringExtra(NewProfile.BMI_KEY);
 
         super.onCreate(savedInstanceState);
+
+        String res = "";
+        if(Double.parseDouble(bmi) < 18.50) {
+            res = "Underweight";
+        } else if (Double.parseDouble(bmi) >= 18.50 && Double.parseDouble(bmi) <24.99) {
+            res = "Healthy";
+        }else if (Double.parseDouble(bmi) >= 24.99 && Double.parseDouble(bmi) <29.99) {
+            res = "Overweight";
+        }else if (Double.parseDouble(bmi) >=29.99) {
+            res = "Obese";
+        }
         setContentView(R.layout.bmi_screen_activity);
         ((TextView) findViewById(R.id.textView5)).setText(bmi);
+        ((TextView) findViewById(R.id.resultbmi)).setText(res);
+
     }
 
     @Override
