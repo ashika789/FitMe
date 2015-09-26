@@ -1,18 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:weightSum="1">
 
-    <TextView
-        android:layout_width="wrap_content"
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="New Text"
-        android:id="@+id/textView" />
+        android:weightSum="1">
 
-    <EditText android:id="@+id/edit_message"
-        android:layout_width="218dp"
-        android:layout_height="wrap_content"
-        android:hint="@string/profile_name"
-        android:layout_gravity="right" />
+        <TextView
+            android:layout_width="46dp"
+            android:layout_height="42dp"
+            android:text="Profile Name"
+            android:id="@+id/ProfileName" />
 
+        <EditText android:id="@+id/edit_message"
+            android:layout_width="158dp"
+            android:layout_height="53dp"
+            android:hint="@string/profile_name"
+            android:enabled="true"
+            android:layout_weight="0.28" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></LinearLayout>
 </LinearLayout>
