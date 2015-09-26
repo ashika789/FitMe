@@ -8,25 +8,28 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Your BMI is:"
         android:id="@+id/bmiValue"
-        android:layout_marginTop="39dp"
         android:typeface="sans"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_toStartOf="@+id/button2" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/bmiVal"
-        android:text=""
+        android:id="@+id/bmiValChange"
+        android:text="this is changed"
+        android:textSize="20dp"
+        android:textIsSelectable="false"
+        android:layout_below="@+id/bmiValue"
         android:layout_alignEnd="@+id/button2"
-        android:layout_below="@+id/bmiValue" />
+        android:visibility="visible"
+        android:linksClickable="false" />
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageView"
         android:src="@drawable/bmichart"
-        android:layout_below="@+id/bmiVal"
+        android:layout_below="@+id/bmiValChange"
         android:layout_alignParentStart="true" />
 
     <TextView
@@ -65,8 +68,8 @@
         android:layout_height="wrap_content"
         android:text="Take the Quiz"
         android:id="@+id/button2"
-        android:layout_marginBottom="38dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_below="@+id/textView6"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="66dp" />
 
 </RelativeLayout>
