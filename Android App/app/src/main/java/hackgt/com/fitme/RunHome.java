@@ -12,6 +12,7 @@ public class RunHome extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        TypefaceUtil.overrideFont(getApplicationContext(), "SERIF", "fonts/Roboto-Thin.ttf");
         setContentView(R.layout.home);
 
     }
@@ -19,12 +20,14 @@ public class RunHome extends Activity {
     public void getProfile(View view) {
         overridePendingTransition(R.anim.fadein, R.anim.fadeout);
        // overridePendingTransition(R.anim.fadein, R.anim.fadeout);
+        TypefaceUtil.overrideFont(getApplicationContext(), "SERIF", "fonts/Roboto-Thin.ttf");
         setContentView(R.layout.newprofile);
        // overridePendingTransition(R.anim.fadein, R.anim.fadeout);
     }
 
     public void bmiResults(View view) {
         // overridePendingTransition(R.anim.fadein, R.anim.fadeout);
+        TypefaceUtil.overrideFont(getApplicationContext(), "SERIF", "fonts/Roboto-Thin.ttf");
         setContentView(R.layout.bmi_screen);
         // overridePendingTransition(R.anim.fadein, R.anim.fadeout);
     }
