@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:weightSum="1"
-    android:id="@+id/"
+    android:id="@+id/Logo"
     android:baselineAligned="false"
     android:orientation="vertical">
 
@@ -16,7 +16,7 @@
         android:adjustViewBounds="true"
         android:scaleType="fitXY"
 
-        android:src="@drawable/fitmeLogo"
+        android:src="@drawable/fitmelogo"
         android:layout_gravity="center_horizontal"
         android:layout_weight="0.33"
         android:layout_marginTop="113dp"
