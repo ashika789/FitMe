@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1"
+    android:id="@+id/"
+    android:baselineAligned="false"
+    android:orientation="vertical">
+
+
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="374dp"
+        android:layout_height="159dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+
+        android:src="/Users/AshikaGanesh/Documents/Final_Github/FitMe/Android App/app/src/main/res/drawable/fitmeLogo.png"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.33"
+        android:layout_marginTop="113dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:text="New User"
+        android:id="@+id/newUser"
+        android:layout_gravity="center_horizontal"
+        android:clickable="true"
+        android:padding="4dp"
+        android:layout_weight="0.33"
+        android:layout_alignTop="@+id/returningUser"
+        android:layout_alignStart="@+id/imageView3" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:text="Returning User"
+        android:id="@+id/returningUser"
+        android:layout_gravity="center_horizontal"
+        android:clickable="true"
+        android:padding="4dp"
+        android:layout_weight="0.33"
+        android:layout_below="@+id/imageView3"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="63dp" />
+
+
+</RelativeLayout>
