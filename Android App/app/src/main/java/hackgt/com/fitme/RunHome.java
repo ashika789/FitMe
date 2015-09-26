@@ -17,6 +17,8 @@ public class RunHome extends Activity {
     }
 
     public void getProfile(View view) {
+//        double height = ;
+//        double weight = ;
         setContentView(R.layout.newprofile);
     }
 }
