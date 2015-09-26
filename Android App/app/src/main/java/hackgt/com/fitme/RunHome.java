@@ -17,8 +17,7 @@ public class RunHome extends Activity {
     }
 
     public void getProfile(View view) {
-//        double height = ;
-//        double weight = ;
+
         overridePendingTransition(R.anim.fadein, R.anim.fadeout);
         setContentView(R.layout.newprofile);
         overridePendingTransition(R.anim.fadein, R.anim.fadeout);

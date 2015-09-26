@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
 
 public class NewProfile extends Activity {
 
@@ -33,5 +35,17 @@ public class NewProfile extends Activity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void calcBMI(View view) {
+
+        double heightFeet = Double.parseDouble(((EditText) findViewById(R.id.heightFeet)).getText().toString());
+        double heightInches = Double.parseDouble(((EditText) findViewById(R.id.heightInches)).getText().toString());
+        double weight = Double.parseDouble(((EditText) findViewById(R.id.weight)).getText().toString());
+
+        double height = heightInches + heightFeet * 12;
+        double bmi = (weight * .45) / Math.pow((height * .025), 2);
+
+        System.out.println(bmi);
     }
 }
