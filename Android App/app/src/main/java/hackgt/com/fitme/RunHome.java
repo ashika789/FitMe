@@ -6,7 +6,7 @@ import android.content.Context;
 import android.view.View;
 import android.widget.Button;
 import android.view.View.OnClickListener;
-
+import android.widget.TextView;
 public class RunHome extends Activity {
 
     @Override
@@ -26,10 +26,12 @@ public class RunHome extends Activity {
     }
 
     public void bmiResults(View view) {
-        // overridePendingTransition(R.anim.fadein, R.anim.fadeout);
         TypefaceUtil.overrideFont(getApplicationContext(), "SERIF", "fonts/Roboto-Thin.ttf");
+//        TextView tv1 = (TextView) findViewById(R.id.bmiVal);
+//        NewProfile calc = new NewProfile();
+//        String toSet = calc.calcBMI();
         setContentView(R.layout.bmi_screen);
-        // overridePendingTransition(R.anim.fadein, R.anim.fadeout);
+//        tv1.setText(toSet);
     }
 
 //    public void surveyScreen(View view) {

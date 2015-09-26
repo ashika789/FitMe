@@ -121,6 +121,6 @@
         android:id="@+id/calcBMI"
         android:layout_weight=".5"
         android:layout_gravity="center_horizontal"
-        android:onClick="calcBMI" />
+        android:onClick="bmiResults" />
 
 </LinearLayout>

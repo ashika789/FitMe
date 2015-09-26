@@ -6,8 +6,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 public class NewProfile extends Activity {
+
+    public NewProfile() {
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,15 +42,16 @@ public class NewProfile extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void calcBMI(View view) {
+    public String calcBMI() {
 
-        double heightFeet = Double.parseDouble(((EditText) findViewById(R.id.heightFeet)).getText().toString());
-        double heightInches = Double.parseDouble(((EditText) findViewById(R.id.heightInches)).getText().toString());
-        double weight = Double.parseDouble(((EditText) findViewById(R.id.weight)).getText().toString());
+        double heightFeet = Double.parseDouble(((TextView) findViewById(R.id.heightFeet)).getText().toString());
+        double heightInches = Double.parseDouble(((TextView) findViewById(R.id.heightInches)).getText().toString());
+        double weight = Double.parseDouble(((TextView) findViewById(R.id.weight)).getText().toString());
 
         double height = heightInches + heightFeet * 12;
         double bmi = (weight * .45) / Math.pow((height * .025), 2);
 
-        System.out.println(bmi);
+        return Double.toString(bmi);
     }
+
 }
