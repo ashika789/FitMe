@@ -7,12 +7,13 @@ import android.content.Context;
 import android.view.View;
 import android.widget.Button;
 import android.view.View.OnClickListener;
-
+import android.widget.TextView;
 public class RunHome extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        TypefaceUtil.overrideFont(getApplicationContext(), "SERIF", "fonts/Roboto-Thin.ttf");
         setContentView(R.layout.home);
 
     }
@@ -24,5 +25,7 @@ public class RunHome extends Activity {
        // overridePendingTransition(R.anim.fadein, R.anim.fadeout);
        // overridePendingTransition(R.anim.fadein, R.anim.fadeout);
     }
-
+        // TypefaceUtil.overrideFont(getApplicationContext(), "SERIF", "fonts/Roboto-Thin.ttf");
+        // setContentView(R.layout.newprofile);
+       // overridePendingTransition(R.anim.fadein, R.anim.fadeout);
 }
