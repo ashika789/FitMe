@@ -1,18 +1,22 @@
 package hackgt.com.fitme;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.content.Context;
+import android.view.View;
+import android.widget.Button;
+import android.view.View.OnClickListener;
 
-public class runHome extends Activity {
-    public static Context context;
+public class RunHome extends Activity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home);
-        context = getApplicationContext();
+
+    }
+
+    public void getProfile(View view) {
+        setContentView(R.layout.newprofile);
     }
 }

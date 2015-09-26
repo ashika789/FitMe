@@ -12,10 +12,9 @@
         android:layout_width="374dp"
         android:layout_height="159dp"
         android:adjustViewBounds="true"
-        android:scaleType="fitXY"
+        android:scaleType="fitCenter"
 
         android:src="@drawable/fitmelogo"
-        android:layout_gravity="center_horizontal"
         android:layout_weight="0.33"
         android:layout_marginTop="113dp"
         android:layout_alignParentTop="true"
@@ -31,7 +30,10 @@
         android:padding="4dp"
         android:layout_weight="0.33"
         android:layout_alignTop="@+id/returningUser"
-        android:layout_alignStart="@+id/imageView3" />
+        android:layout_alignStart="@+id/imageView3"
+        android:nestedScrollingEnabled="false"
+        android:onClick="getProfile"
+         />
 
     <Button
         style="?android:attr/buttonStyleSmall"
