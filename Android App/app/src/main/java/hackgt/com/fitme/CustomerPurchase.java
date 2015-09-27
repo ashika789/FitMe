@@ -2,10 +2,15 @@ package hackgt.com.fitme;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.drm.DrmUtils;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
+
+import com.reimaginebanking.api.java.models.Customer;
 
 public class CustomerPurchase extends Activity {
 
@@ -42,5 +47,34 @@ public class CustomerPurchase extends Activity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void makePayment(View view) {
+
+        // Parse information
+        String firstName = ((EditText) findViewById(R.id.firstName)).getText().toString();
+        String lastName = ((EditText) findViewById(R.id.lastName)).getText().toString();
+        String state = ((EditText) findViewById(R.id.state)).getText().toString();
+        String streetNumber = ((EditText) findViewById(R.id.streetNumber)).getText().toString();
+        String streetName = ((EditText) findViewById(R.id.streetName)).getText().toString();
+        String city = ((EditText) findViewById(R.id.city)).getText().toString();
+        String zip = ((EditText) findViewById(R.id.zip)).getText().toString();
+
+        // Store customer / account information
+        ExternalOps nessieClient = new ExternalOps();
+        nessieClient.createCustomer(state, streetNumber, streetName, city, zip, firstName, lastName);
+        nessieClient.uploadCustomer();
+        nessieClient.createAccount();
+        nessieClient.uploadAccount();
+
+        // Get trainer information - already on bank website
+        String trainerName = ((TextView) findViewById(R.id.tname)).getText().toString();
+        String price = ((TextView) findViewById(R.id.totalPay)).getText().toString();
+
+        Customer trainer = getTrainer(trainerName);
+    }
+
+    public Customer getTrainer(String trainerName) {
+        
     }
 }

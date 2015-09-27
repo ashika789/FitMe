@@ -24,6 +24,9 @@ public class ExternalOps {
     private Customer clientCustomer;
     private Account clientAccount;
 
+    private Customer trainerCustomer;
+    private Account trainerAccount;
+
     public ExternalOps() {
         nessieClient = NessieClient.getInstance();
         nessieClient.setAPIKey(API_KEY);
@@ -108,5 +111,52 @@ public class ExternalOps {
 
     }
 
+    public Customer getCustomer(final String customerName) {
+        nessieClient.getCustomers(new NessieResultsListener() {
+            @Override
+            public void onSuccess(Object result, NessieException e) {
+                if (e == null) {
+                    //There is no error, do whatever you need here.
+                    // Cast the result object to the type that you are requesting and you are good to go
+                    ArrayList<Customer> customers = (ArrayList<Customer>) result;
+
+                    for (Customer cus : customers) {
+                        if (cus.getFirst_name().equals(customerName)) {
+                            //if (cus.getFirst_name().equals(clientCustomer.getFirst_name()) && cus.getLast_name().equals(clientCustomer.getLast_name()) && cus.getAddress().equals(clientCustomer.getAddress())) {
+                            trainerCustomer = cus;
+                        }
+                    }
+                } else {
+                    //There was an error. Handle it here
+                    Log.e("Error", e.toString());
+                }
+            }
+        });
+        return trainerCustomer;
+    }
+
+    public Account getAccount(final Customer customer) {
+        nessieClient.getAccounts(new NessieResultsListener() {
+            @Override
+            public void onSuccess(Object result, NessieException e) {
+                if (e == null) {
+                    //There is no error, do whatever you need here.
+                    // Cast the result object to the type that you are requesting and you are good to go
+                    ArrayList<Account> accounts = (ArrayList<Account>) result;
+
+                    for (Account acc : accounts) {
+                        if (customer.getFirst_name().equals(acc.getCustomer())) {
+                            //if (cus.getFirst_name().equals(clientCustomer.getFirst_name()) && cus.getLast_name().equals(clientCustomer.getLast_name()) && cus.getAddress().equals(clientCustomer.getAddress())) {
+                            trainerAccount = acc;
+                        }
+                    }
+                } else {
+                    //There was an error. Handle it here
+                    Log.e("Error", e.toString());
+                }
+            }
+        });
+        return trainerAccount;
+    }
 
 }

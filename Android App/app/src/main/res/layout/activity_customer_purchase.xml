@@ -153,7 +153,8 @@
         android:id="@+id/confirmation"
         android:layout_below="@+id/email"
         android:layout_alignEnd="@+id/email"
-        android:clickable="true" />
+        android:clickable="true"
+        android:onClick="makePayment" />
 
     <TextView
         android:layout_width="wrap_content"
