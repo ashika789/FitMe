@@ -71,10 +71,10 @@ public class CustomerPurchase extends Activity {
         String trainerName = ((TextView) findViewById(R.id.tname)).getText().toString();
         String price = ((TextView) findViewById(R.id.totalPay)).getText().toString();
 
-        Customer trainer = getTrainer(trainerName);
+        //Customer trainer = getTrainer(trainerName);
     }
 
-    public Customer getTrainer(String trainerName) {
-        
-    }
+//    public Customer getTrainer(String trainerName) {
+//
+//    }
 }
