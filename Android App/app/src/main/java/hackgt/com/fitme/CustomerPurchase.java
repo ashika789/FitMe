@@ -74,7 +74,7 @@ public class CustomerPurchase extends Activity {
         //Customer trainer = getTrainer(trainerName);
     }
 
-//    public Customer getTrainer(String trainerName) {
-//
-//    }
+    public Customer getTrainer(String trainerName) {
+        return null;
+    }
 }

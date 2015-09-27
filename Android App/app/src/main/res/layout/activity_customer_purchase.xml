@@ -18,6 +18,10 @@
         android:layout_below="@+id/total"
         android:layout_alignParentStart="true"
         android:layout_alignEnd="@+id/imageView7" />
+        android:textIsSelectable="false"
+        android:visibility="visible"
+        android:selectAllOnFocus="false"
+        android:hint="First" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -30,6 +34,12 @@
         android:layout_alignParentEnd="true"
         android:layout_toEndOf="@+id/total"
         android:layout_alignStart="@+id/imageView7" />
+        android:id="@+id/streetNumber"
+        android:layout_alignParentStart="true"
+        android:hint="Street Number"
+        android:layout_toStartOf="@+id/totalPay"
+        android:layout_below="@+id/firstName"
+        android:layout_alignEnd="@+id/power" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -40,6 +50,8 @@
         android:layout_alignParentStart="true"
         android:text="City"
         android:layout_below="@+id/streetName" />
+        android:layout_below="@+id/streetNumber"
+        android:hint="City" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -50,6 +62,9 @@
         android:text="State"
         android:layout_alignTop="@+id/city"
         android:layout_alignEnd="@+id/streetName" />
+        android:hint="State"
+        android:layout_below="@+id/streetNumber"
+        android:layout_centerHorizontal="true" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -59,7 +74,7 @@
         android:id="@+id/zip"
         android:layout_below="@+id/streetName"
         android:layout_toEndOf="@+id/city"
-        android:text="Zip" />
+        android:hint="Zipcode" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -69,7 +84,7 @@
         android:id="@+id/ccn"
         android:layout_below="@+id/city"
         android:layout_alignParentStart="true"
-        android:text="Credit Card Number" />
+        android:hint="Credit Card Number" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -79,7 +94,7 @@
         android:id="@+id/CVV"
         android:layout_below="@+id/city"
         android:layout_toEndOf="@+id/city"
-        android:text="CVV" />
+        android:hint="CVV" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -87,9 +102,9 @@
         android:inputType="textEmailAddress"
         android:ems="10"
         android:id="@+id/email"
-        android:layout_alignParentStart="true"
-        android:text="e-mail"
+        android:hint="E-mail"
         android:layout_below="@+id/ccn"
+        android:layout_alignParentStart="true"
         android:layout_alignEnd="@+id/CVV" />
 
     <TextView
@@ -101,6 +116,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignEnd="@+id/streetName" />
+        android:layout_alignEnd="@+id/streetNumber" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -153,10 +169,10 @@
         android:layout_height="wrap_content"
         android:text="Make Payment"
         android:id="@+id/confirmation"
-        android:layout_below="@+id/email"
-        android:layout_alignEnd="@+id/email"
         android:clickable="true"
-        android:onClick="makePayment" />
+        android:onClick="makePayment"
+        android:layout_below="@+id/email"
+        android:layout_alignStart="@+id/imageView6" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -187,6 +203,14 @@
         android:id="@+id/lastName"
         android:layout_alignTop="@+id/firstName"
         android:layout_toEndOf="@+id/imageView7" />
+        android:ems="10"
+        android:id="@+id/lastName"
+        android:textIsSelectable="false"
+        android:visibility="visible"
+        android:selectAllOnFocus="false"
+        android:hint="Last"
+        android:layout_below="@+id/totalPay"
+        android:layout_toEndOf="@+id/imageView6" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -198,5 +222,10 @@
         android:layout_above="@+id/city"
         android:layout_alignParentStart="true"
         android:layout_toStartOf="@+id/imageView7" />
+        android:id="@+id/streetName"
+        android:hint="Street Address"
+        android:layout_alignTop="@+id/streetNumber"
+        android:layout_toEndOf="@+id/streetNumber"
+        android:layout_alignBottom="@+id/streetNumber" />
 
 </RelativeLayout>
