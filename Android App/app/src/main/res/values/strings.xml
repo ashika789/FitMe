@@ -6,6 +6,6 @@
     <string name="survey_activity"></string>
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_bmiscreen">BMIScreen</string>
-    <string name="title_activity_workouts">workouts</string>
-    <string name="title_activity_trainerlist">trainerlist</string>
+    <string name="title_activity_workouts">Workouts</string>
+    <string name="title_activity_trainerlist">Trainerlist</string>
 </resources>

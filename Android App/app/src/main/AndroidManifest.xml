@@ -29,11 +29,11 @@
             android:label="@string/survey_activity" >
         </activity>
         <activity
-            android:name=".workouts"
+            android:name=".Workouts"
             android:label="@string/title_activity_workouts" >
         </activity>
         <activity
-            android:name=".trainerlist"
+            android:name=".Trainerlist"
             android:label="@string/title_activity_trainerlist" >
         </activity>
     </application>

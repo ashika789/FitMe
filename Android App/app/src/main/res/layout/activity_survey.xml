@@ -225,7 +225,8 @@
         android:layout_height="wrap_content"
         android:text="Finish"
         android:id="@+id/finishSurvey"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:onClick="selectTrainer" />
 
 </LinearLayout>
 </ScrollView>
