@@ -1,21 +1,17 @@
 package hackgt.com.fitme;
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.TextView;
 
 public class BMIScreen extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        // This is how we get the string from the previous screen
         Intent intent = getIntent();
         String bmi = intent.getStringExtra(NewProfile.BMI_KEY);
 
@@ -32,9 +28,8 @@ public class BMIScreen extends Activity {
             res = "Obese";
         }
         setContentView(R.layout.bmi_screen_activity);
-        ((TextView) findViewById(R.id.textView5)).setText(bmi);
+        ((TextView) findViewById(R.id.bmiTextView)).setText(bmi);
         ((TextView) findViewById(R.id.resultbmi)).setText(res);
-
     }
 
     @Override
@@ -63,5 +58,4 @@ public class BMIScreen extends Activity {
         Intent intent = new Intent(this, Survey.class);
         startActivity(intent);
     }
-
 }

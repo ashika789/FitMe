@@ -18,8 +18,17 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Quick Fitness Survey"
+        android:id="@+id/surveyTopLabel"
+        android:layout_gravity="center_horizontal"
+        android:textStyle="bold"
+        android:layout_marginBottom="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="1) How fit are you?"
+        android:text="1) How fit would you describe yourself?"
         android:id="@+id/fitLevel"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
@@ -27,7 +36,8 @@
 
     <RadioGroup
         android:layout_width="140dp"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:id="@+id/fitnessLevel">
 
         <RadioButton
             android:layout_width="wrap_content"
@@ -62,7 +72,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="2) What do you plan on?"
+        android:text="2) What do you hope to achieve?"
         android:id="@+id/plan"
         android:layout_below="@+id/fit"
         android:layout_alignParentStart="true"
@@ -70,7 +80,8 @@
 
     <RadioGroup
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:id="@+id/goals">
 
         <RadioButton
             android:layout_width="wrap_content"
@@ -104,7 +115,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="3) When you usually work out, what do you do the most?"
+        android:text="3) When and if you exercise, what do you do the most?"
         android:id="@+id/mostUsed"
         android:layout_below="@+id/gainW"
         android:layout_alignParentStart="true"
@@ -112,7 +123,8 @@
 
     <RadioGroup
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:id="@+id/weightsOrCardio">
 
         <RadioButton
             android:layout_width="wrap_content"

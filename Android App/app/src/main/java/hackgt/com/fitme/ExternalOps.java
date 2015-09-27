@@ -1,17 +1,22 @@
 package hackgt.com.fitme;
 
 import android.util.Log;
+import android.widget.Toast;
 
 import com.reimaginebanking.api.java.Constants.AccountType;
+import com.reimaginebanking.api.java.Constants.TransactionMedium;
 import com.reimaginebanking.api.java.NessieClient;
 import com.reimaginebanking.api.java.NessieException;
 import com.reimaginebanking.api.java.NessieResultsListener;
 import com.reimaginebanking.api.java.models.Account;
 import com.reimaginebanking.api.java.models.Address;
 import com.reimaginebanking.api.java.models.Customer;
+import com.reimaginebanking.api.java.models.Transfer;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+
+import retrofit.RetrofitError;
 
 /**
  * Created by Siddarth on 9/26/2015.
@@ -20,6 +25,7 @@ public class ExternalOps {
 
     private NessieClient nessieClient;
     private String API_KEY = "3f6923379b0ab8da8553b1a421d13423";
+
     private Address clientAddress;
     private Customer clientCustomer;
     private Account clientAccount;
@@ -27,37 +33,39 @@ public class ExternalOps {
     private Customer trainerCustomer;
     private Account trainerAccount;
 
+    public Transfer transfer;
+
     public ExternalOps() {
         nessieClient = NessieClient.getInstance();
         nessieClient.setAPIKey(API_KEY);
     }
 
     public void createCustomer(String state, String streetNumber, String streetName, String city, String zip, String firstName, String lastName) {
-        this.clientAddress =  new Address(state, streetName, streetNumber, city, zip);
-        this.clientCustomer = new Customer();
-        clientCustomer.setAddress(clientAddress);
+        clientAddress =  new Address(state, streetName, streetNumber, city, zip);
+        clientCustomer = new Customer(clientAddress);
         clientCustomer.setFirst_name(firstName);
         clientCustomer.setLast_name(lastName);
     }
 
     public void uploadCustomer() {
 
-        // Upload our customer to their database
         NessieResultsListener listener = new NessieResultsListener() {
             @Override
             public void onSuccess(Object o, NessieException e) {
-                nessieClient.createCustomer(clientCustomer, this);
+                if (e != null) {
+                    e.printStackTrace();
+                }
             }
         };
+        // Upload our customer to Capital One database
+        nessieClient.createCustomer(clientCustomer, listener);
 
         // Set our customer to the customer in the database
-        // Effectively we have retrieved the customer's ID
+        // Effectively we have retrieved the customer's ID / any missing gaps
         nessieClient.getCustomers(new NessieResultsListener() {
             @Override
             public void onSuccess(Object result, NessieException e) {
                 if (e == null) {
-                    //There is no error, do whatever you need here.
-                    // Cast the result object to the type that you are requesting and you are good to go
                     ArrayList<Customer> customers = (ArrayList<Customer>) result;
 
                     for (Customer cus : customers) {
@@ -85,30 +93,29 @@ public class ExternalOps {
     }
 
     public void uploadAccount() {
-        // Upload the account and pair it with a customer ID
 
-        nessieClient.createAccount(clientCustomer.get_id(), clientAccount, new NessieResultsListener() {
+        // Upload the account and pair it with a customer ID
+        NessieResultsListener listener = new NessieResultsListener() {
             @Override
             public void onSuccess(Object o, NessieException e) {
                 nessieClient.createAccount(clientCustomer.get_id(), clientAccount, this);
             }
-        });
+        };
 
-        // Get the account for ourselves
+        // Get the account for ourselves locally
         nessieClient.getAccounts(new NessieResultsListener() {
             @Override
             public void onSuccess(Object o, NessieException e) {
                 ArrayList<Account> accounts = ((ArrayList<Account>) o);
 
                 for (Account x : accounts) {
-                    if (x.getCustomer().equals(clientCustomer)) {
+                    if (x.getNickname().equals(clientAccount.getNickname())) {
                         clientAccount = x;
                         return;
                     }
                 }
             }
         });
-
     }
 
     public Customer getCustomer(final String customerName) {
@@ -116,8 +123,6 @@ public class ExternalOps {
             @Override
             public void onSuccess(Object result, NessieException e) {
                 if (e == null) {
-                    //There is no error, do whatever you need here.
-                    // Cast the result object to the type that you are requesting and you are good to go
                     ArrayList<Customer> customers = (ArrayList<Customer>) result;
 
                     for (Customer cus : customers) {
@@ -140,8 +145,6 @@ public class ExternalOps {
             @Override
             public void onSuccess(Object result, NessieException e) {
                 if (e == null) {
-                    //There is no error, do whatever you need here.
-                    // Cast the result object to the type that you are requesting and you are good to go
                     ArrayList<Account> accounts = (ArrayList<Account>) result;
 
                     for (Account acc : accounts) {
@@ -159,4 +162,33 @@ public class ExternalOps {
         return trainerAccount;
     }
 
+    public void buildTransfer(double amount) {
+        // Build a transfer
+        Transfer.Builder transferBuilder = new Transfer.Builder();
+        transferBuilder.status("completed");
+        transferBuilder.medium(TransactionMedium.BALANCE);
+        transferBuilder.payee_id(trainerAccount.get_id());
+        transferBuilder.amount(amount);
+        transferBuilder.description("Personal Trainer Monthly Charge");
+        transferBuilder.transaction_date("September 10, 2015");
+        transfer = transferBuilder.build();
+    }
+
+    public boolean makeTransfer(double amount) {
+        buildTransfer(amount);
+        // Upload the transfer
+        NessieResultsListener listener = new NessieResultsListener() {
+            @Override
+            public void onSuccess(Object o, NessieException e) {
+
+            }
+        };
+
+        nessieClient.createTransfer(clientAccount.get_id(), transfer, listener);
+    return true;
+}
+
+    public Account getClientAccount() {
+        return getAccount(clientCustomer);
+    }
 }

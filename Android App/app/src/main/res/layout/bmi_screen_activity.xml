@@ -21,7 +21,7 @@
     android:layout_height="wrap_content"
     android:textAppearance="?android:attr/textAppearanceLarge"
     android:text="TBA"
-    android:id="@+id/textView5"
+    android:id="@+id/bmiTextView"
     android:singleLine="true"
     android:layout_below="@+id/bmiValue"
     android:layout_centerHorizontal="true"
@@ -32,7 +32,7 @@
     android:layout_height="wrap_content"
     android:id="@+id/imageView"
     android:src="@drawable/bmichart"
-    android:layout_below="@+id/textView5"
+    android:layout_below="@+id/bmiTextView"
     android:layout_alignParentStart="true" />
 
 <TextView
@@ -52,7 +52,8 @@
     android:id="@+id/resultbmi"
     android:layout_alignTop="@+id/result"
     android:textStyle="bold"
-    android:layout_alignParentEnd="true" />
+    android:layout_alignParentEnd="true"
+    android:gravity="left" />
 
 <TextView
     android:layout_width="wrap_content"

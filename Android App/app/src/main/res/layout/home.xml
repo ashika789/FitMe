@@ -47,7 +47,8 @@
         android:layout_weight="0.33"
         android:layout_marginTop="72dp"
         android:layout_below="@+id/imageView3"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:onClick="viewWorkout" />
 
 
 </RelativeLayout>

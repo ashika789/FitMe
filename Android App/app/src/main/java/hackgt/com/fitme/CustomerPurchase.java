@@ -2,21 +2,21 @@ package hackgt.com.fitme;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.drm.DrmUtils;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.reimaginebanking.api.java.models.Account;
 import com.reimaginebanking.api.java.models.Customer;
 
 public class CustomerPurchase extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        // This is how we get the string from the previous screen
         Intent intent = getIntent();
         String trainerName = intent.getStringExtra(Trainerlist.TRAINER_NAME);
         String price = intent.getStringExtra(Trainerlist.PRICE);
@@ -59,6 +59,7 @@ public class CustomerPurchase extends Activity {
         String streetName = ((EditText) findViewById(R.id.streetName)).getText().toString();
         String city = ((EditText) findViewById(R.id.city)).getText().toString();
         String zip = ((EditText) findViewById(R.id.zip)).getText().toString();
+        String ccn = ((EditText) findViewById(R.id.ccn)).getText().toString();
 
         // Store customer / account information
         ExternalOps nessieClient = new ExternalOps();
@@ -70,11 +71,16 @@ public class CustomerPurchase extends Activity {
         // Get trainer information - already on bank website
         String trainerName = ((TextView) findViewById(R.id.tname)).getText().toString();
         String price = ((TextView) findViewById(R.id.totalPay)).getText().toString();
+        Customer trainer = nessieClient.getCustomer(trainerName);
+        Account trainerAccount = nessieClient.getAccount(trainer);
 
-        //Customer trainer = getTrainer(trainerName);
-    }
+        Log.d("TRAINER : ", "$$$$$$$: "+ nessieClient.getAccount(trainer).getBalance());
+        Log.d("APP USER: ", "$$$$$$$: " + nessieClient.getClientAccount().getBalance());
 
-    public Customer getTrainer(String trainerName) {
-        return null;
+        // Make the transfer
+        nessieClient.makeTransfer(Double.parseDouble(price));
+
+        Log.d("TRAINER : ", "$$$$$$$: "+ nessieClient.getAccount(trainer).getBalance());
+        Log.d("APP USER: ", "$$$$$$$: " + nessieClient.getClientAccount().getBalance());
     }
 }

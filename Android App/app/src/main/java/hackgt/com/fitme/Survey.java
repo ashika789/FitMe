@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.CheckBox;
+import android.widget.RadioGroup;
 
 public class Survey extends Activity {
 
@@ -38,6 +40,26 @@ public class Survey extends Activity {
     }
 
     public void selectTrainer(View view) {
+        // Save form information in SurveyAnswers class
+        SurveyAnswers record = SurveyAnswers.getInstance();
+        int index = ((RadioGroup) findViewById(R.id.fitnessLevel)).indexOfChild(findViewById(((RadioGroup) findViewById(R.id.fitnessLevel)).getCheckedRadioButtonId()));
+        record.setFitnessLevel(index);
+        index = ((RadioGroup) findViewById(R.id.goals)).indexOfChild(findViewById(((RadioGroup) findViewById(R.id.goals)).getCheckedRadioButtonId()));
+        record.setGoalLevel(index);
+        index = ((RadioGroup) findViewById(R.id.weightsOrCardio)).indexOfChild(findViewById(((RadioGroup) findViewById(R.id.weightsOrCardio)).getCheckedRadioButtonId()));
+        record.setCardioOrWeightsPreference(index);
+
+        //TODO: make sure this is properly read - currently always returns true
+        boolean arms = ((CheckBox) findViewById(R.id.arms)).isChecked();
+        boolean legs = ((CheckBox) findViewById(R.id.arms)).isChecked();
+        boolean back = ((CheckBox) findViewById(R.id.arms)).isChecked();
+        boolean shoulders = ((CheckBox) findViewById(R.id.arms)).isChecked();
+        boolean chest = ((CheckBox) findViewById(R.id.arms)).isChecked();
+        boolean core = ((CheckBox) findViewById(R.id.arms)).isChecked();
+        boolean[] targetAreas = {arms, legs, back, shoulders, chest, core};
+        record.setTargetAreas(targetAreas);
+
+        // Open up next screen
         Intent intent = new Intent(this, Trainerlist.class);
         startActivity(intent);
     }

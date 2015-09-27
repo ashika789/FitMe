@@ -3,6 +3,7 @@ package hackgt.com.fitme;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -11,8 +12,13 @@ import com.reimaginebanking.api.java.models.Customer;
 
 public class Trainerlist extends Activity {
 
+    public final static String TRAINER_NAME = "trainerName";
+    public final static String PRICE = "price";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        SurveyAnswers record = SurveyAnswers.getInstance();
+        Log.d("test", java.util.Arrays.toString(record.getTargetAreas()));
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trainerlist);
     }
@@ -39,10 +45,10 @@ public class Trainerlist extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
-    public final static String TRAINER_NAME = "trainerName";
-    public final static String PRICE = "price";
-
     public void trainerOne(View view) {
+        SurveyAnswers record = SurveyAnswers.getInstance();
+        record.setTrainerName("Ethan");
+        record.setPrice("75");
         Intent intent = new Intent(this, CustomerPurchase.class);
         intent.putExtra(TRAINER_NAME, "Ethan");
         intent.putExtra(PRICE, "75");
@@ -50,6 +56,9 @@ public class Trainerlist extends Activity {
     }
 
     public void trainerTwo(View view) {
+        SurveyAnswers record = SurveyAnswers.getInstance();
+        record.setTrainerName("Jessica");
+        record.setPrice("35");
         Intent intent = new Intent(this, CustomerPurchase.class);
         intent.putExtra(TRAINER_NAME, "Jessica");
         intent.putExtra(PRICE, "35");
@@ -57,10 +66,12 @@ public class Trainerlist extends Activity {
     }
 
     public void trainerThree(View view) {
+        SurveyAnswers record = SurveyAnswers.getInstance();
+        record.setTrainerName("Jason");
+        record.setPrice("149");
         Intent intent = new Intent(this, CustomerPurchase.class);
         intent.putExtra(TRAINER_NAME, "Jason");
         intent.putExtra(PRICE, "149");
         startActivity(intent);
     }
-
 }
