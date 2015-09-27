@@ -75,6 +75,6 @@ public class CustomerPurchase extends Activity {
     }
 
     public Customer getTrainer(String trainerName) {
-        
+        return null;
     }
 }
