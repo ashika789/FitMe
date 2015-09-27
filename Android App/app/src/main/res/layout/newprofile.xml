@@ -9,7 +9,7 @@
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_weight="0.47"
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
         android:layout_marginTop="50dp">
@@ -23,7 +23,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Profile Name"
-                android:id="@+id/profileNameLabel" />
+                android:id="@+id/profileNameLabel"
+                android:textStyle="bold" />
 
             <EditText
                 android:layout_width="wrap_content"
@@ -40,7 +41,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Age"
-                android:id="@+id/ageLabel" />
+                android:id="@+id/ageLabel"
+                android:textStyle="bold" />
 
             <EditText
                 android:layout_width="wrap_content"
@@ -60,7 +62,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Weight (lbs)"
-                android:id="@+id/weightLabel" />
+                android:id="@+id/weightLabel"
+                android:textStyle="bold" />
 
             <EditText
                 android:layout_width="wrap_content"
@@ -81,7 +84,8 @@
                 android:layout_height="wrap_content"
                 android:text="Height"
                 android:id="@+id/heightLabel"
-                android:layout_weight="2" />
+                android:layout_weight="2"
+                android:textStyle="bold" />
 
             <EditText
                 android:layout_width="0dp"
@@ -116,11 +120,10 @@
     </TableLayout>
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="125dp"
+        android:layout_height="36dp"
         android:text="Submit"
         android:id="@+id/calcBMI"
-        android:layout_weight=".5"
         android:layout_gravity="center_horizontal"
         android:onClick="calcBMI" />
 
