@@ -8,4 +8,5 @@
     <string name="title_activity_bmiscreen">BMIScreen</string>
     <string name="title_activity_workouts">Workouts</string>
     <string name="title_activity_trainerlist">Trainerlist</string>
+    <string name="title_activity_customer_purchase">CustomerPurchase</string>
 </resources>

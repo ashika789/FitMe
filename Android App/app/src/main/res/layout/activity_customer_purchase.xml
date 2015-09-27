@@ -93,7 +93,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Thanks for getting a workout plan from "
+        android:text="Thanks for purchasing a workout plan with "
         android:id="@+id/thanks"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
@@ -103,11 +103,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="TRAINER NAME"
+        android:text="TRAINER"
         android:id="@+id/tname"
-        android:layout_alignParentTop="true"
-        android:layout_alignEnd="@+id/thanks"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:layout_alignTop="@+id/thanks"
+        android:layout_alignParentEnd="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -143,7 +143,7 @@
         android:id="@+id/imageView6"
         android:src="@drawable/nessie"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_toStartOf="@+id/confirmation" />
 
     <Button
         android:layout_width="wrap_content"
@@ -167,9 +167,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageView7"
-        android:src="@drawable/applogo"
-        android:layout_above="@+id/textView2"
+        android:src="@drawable/applogosmall"
         android:layout_toStartOf="@+id/imageView6"
-        android:layout_alignTop="@+id/confirmation" />
+        android:layout_alignTop="@+id/confirmation"
+        android:layout_above="@+id/textView2" />
 
 </RelativeLayout>

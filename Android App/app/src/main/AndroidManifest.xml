@@ -36,6 +36,10 @@
             android:name=".Trainerlist"
             android:label="@string/title_activity_trainerlist" >
         </activity>
+        <activity
+            android:name=".CustomerPurchase"
+            android:label="@string/title_activity_customer_purchase" >
+        </activity>
     </application>
 
 </manifest>
