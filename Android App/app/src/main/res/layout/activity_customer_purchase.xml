@@ -1,0 +1,175 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="hackgt.com.fitme.CustomerPurchase"
+    android:id="@+id/customer">
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Name"
+        android:ems="10"
+        android:id="@+id/name"
+        android:layout_below="@+id/total"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPostalAddress"
+        android:ems="10"
+        android:id="@+id/address"
+        android:layout_below="@+id/name"
+        android:layout_alignParentStart="true"
+        android:text="Street Address"
+        android:layout_alignParentEnd="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPostalAddress"
+        android:ems="10"
+        android:id="@+id/city"
+        android:layout_alignParentStart="true"
+        android:text="City"
+        android:layout_below="@+id/address" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPostalAddress"
+        android:ems="10"
+        android:id="@+id/state"
+        android:text="State"
+        android:layout_alignTop="@+id/city"
+        android:layout_alignEnd="@+id/address" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPostalAddress"
+        android:ems="10"
+        android:id="@+id/zip"
+        android:layout_below="@+id/address"
+        android:layout_toEndOf="@+id/city"
+        android:text="Zip" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/ccn"
+        android:layout_below="@+id/city"
+        android:layout_alignParentStart="true"
+        android:text="Credit Card Number" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/CVV"
+        android:layout_below="@+id/city"
+        android:layout_toEndOf="@+id/city"
+        android:text="CVV" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:ems="10"
+        android:id="@+id/email"
+        android:layout_alignParentStart="true"
+        android:text="e-mail"
+        android:layout_below="@+id/ccn"
+        android:layout_alignEnd="@+id/CVV" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Thanks for getting a workout plan from "
+        android:id="@+id/thanks"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignEnd="@+id/address" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="TRAINER NAME"
+        android:id="@+id/tname"
+        android:layout_alignParentTop="true"
+        android:layout_alignEnd="@+id/thanks"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Your total will be: $"
+        android:id="@+id/total"
+        android:layout_below="@+id/thanks"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="INSERT TOTAL "
+        android:id="@+id/totalPay"
+        android:layout_below="@+id/thanks"
+        android:layout_toEndOf="@+id/total"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Transaction Powered By"
+        android:id="@+id/power"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true" />
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/imageView6"
+        android:src="@drawable/nessie"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Make Payment"
+        android:id="@+id/confirmation"
+        android:layout_below="@+id/email"
+        android:layout_alignEnd="@+id/email"
+        android:clickable="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Thanks for using FitMe! "
+        android:id="@+id/textView2"
+        android:layout_above="@+id/imageView6"
+        android:layout_alignParentStart="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView7"
+        android:src="@drawable/applogo"
+        android:layout_above="@+id/textView2"
+        android:layout_toStartOf="@+id/imageView6"
+        android:layout_alignTop="@+id/confirmation" />
+
+</RelativeLayout>
