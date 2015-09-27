@@ -40,6 +40,10 @@
             android:name=".CustomerPurchase"
             android:label="@string/title_activity_customer_purchase" >
         </activity>
+        <activity
+            android:name=".ClosingScreen"
+            android:label="@string/title_activity_closing_screen" >
+        </activity>
     </application>
 
 </manifest>
