@@ -1,16 +1,25 @@
 package hackgt.com.fitme;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 public class CustomerPurchase extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        // This is how we get the string from the previous screen
+        Intent intent = getIntent();
+        String trainerName = intent.getStringExtra(Trainerlist.TRAINER_NAME);
+        String price = intent.getStringExtra(Trainerlist.PRICE);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer_purchase);
+        ((TextView) findViewById(R.id.tname)).setText(trainerName);
+        ((TextView) findViewById(R.id.totalPay)).setText(price);
     }
 
     @Override

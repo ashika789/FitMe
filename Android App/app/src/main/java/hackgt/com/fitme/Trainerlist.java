@@ -1,10 +1,13 @@
 package hackgt.com.fitme;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+
+import com.reimaginebanking.api.java.models.Customer;
 
 public class Trainerlist extends Activity {
 
@@ -36,16 +39,28 @@ public class Trainerlist extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void trainerOne(View view) {
+    public final static String TRAINER_NAME = "trainerName";
+    public final static String PRICE = "price";
 
+    public void trainerOne(View view) {
+        Intent intent = new Intent(this, CustomerPurchase.class);
+        intent.putExtra(TRAINER_NAME, "Ethan");
+        intent.putExtra(PRICE, "75");
+        startActivity(intent);
     }
 
     public void trainerTwo(View view) {
-
+        Intent intent = new Intent(this, CustomerPurchase.class);
+        intent.putExtra(TRAINER_NAME, "Jessica");
+        intent.putExtra(PRICE, "35");
+        startActivity(intent);
     }
 
     public void trainerThree(View view) {
-
+        Intent intent = new Intent(this, CustomerPurchase.class);
+        intent.putExtra(TRAINER_NAME, "Jason");
+        intent.putExtra(PRICE, "149");
+        startActivity(intent);
     }
 
 }
