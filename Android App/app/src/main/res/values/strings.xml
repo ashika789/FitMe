@@ -9,4 +9,5 @@
     <string name="title_activity_workouts">Workouts</string>
     <string name="title_activity_trainerlist">Trainerlist</string>
     <string name="title_activity_customer_purchase">CustomerPurchase</string>
+    <string name="title_activity_closing_screen">ClosingScreen</string>
 </resources>
