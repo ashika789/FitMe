@@ -5,7 +5,8 @@
     android:weightSum="1"
     android:id="@+id/homePage"
     android:baselineAligned="false"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@drawable/bg23">
 
     <ImageView
         android:id="@+id/imageView3"
