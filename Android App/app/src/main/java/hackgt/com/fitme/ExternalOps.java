@@ -48,7 +48,6 @@ public class ExternalOps {
     }
 
     public void uploadCustomer() {
-
         NessieResultsListener listener = new NessieResultsListener() {
             @Override
             public void onSuccess(Object o, NessieException e) {
@@ -57,6 +56,7 @@ public class ExternalOps {
                 }
             }
         };
+
         // Upload our customer to Capital One database
         nessieClient.createCustomer(clientCustomer, listener);
 
@@ -67,9 +67,13 @@ public class ExternalOps {
             public void onSuccess(Object result, NessieException e) {
                 if (e == null) {
                     ArrayList<Customer> customers = (ArrayList<Customer>) result;
-
                     for (Customer cus : customers) {
-                        if (cus.getFirst_name().equals(clientCustomer.getFirst_name()) && cus.getLast_name().equals(clientCustomer.getLast_name()) && cus.getAddress().equals(clientCustomer.getAddress())) {
+//                        System.out.println(cus.getFirst_name().equals(clientCustomer.getFirst_name()));
+//                        System.out.println(cus.getFirst_name().equals(clientCustomer.getFirst_name()) && cus.getLast_name().equals(clientCustomer.getLast_name()) && cus.getAddress().equals(clientCustomer.getAddress()));
+//                        System.out.println(cus.getLast_name().equals(clientCustomer.getLast_name()));
+//                        System.out.println(cus.getAddress().equals(clientCustomer.getAddress()));
+                        //if (cus.getFirst_name().equals(clientCustomer.getFirst_name()) && cus.getLast_name().equals(clientCustomer.getLast_name()) && cus.getAddress().equals(clientCustomer.getAddress())) {
+                        if (cus.getFirst_name().equals(clientCustomer.getFirst_name())) {
                             clientCustomer = cus;
                             return;
                         }
@@ -94,13 +98,17 @@ public class ExternalOps {
 
     public void uploadAccount() {
 
-        // Upload the account and pair it with a customer ID
         NessieResultsListener listener = new NessieResultsListener() {
             @Override
             public void onSuccess(Object o, NessieException e) {
-                nessieClient.createAccount(clientCustomer.get_id(), clientAccount, this);
+                if (e != null) {
+                    Log.e("Error", e.toString());
+                }
             }
         };
+
+        // Upload the account and pair it with a customer ID
+        nessieClient.createAccount(clientCustomer.get_id(), clientAccount, listener);
 
         // Get the account for ourselves locally
         nessieClient.getAccounts(new NessieResultsListener() {
@@ -111,6 +119,7 @@ public class ExternalOps {
                 for (Account x : accounts) {
                     if (x.getNickname().equals(clientAccount.getNickname())) {
                         clientAccount = x;
+                        Log.d("HERE!", clientAccount.toString());
                         return;
                     }
                 }
@@ -118,7 +127,8 @@ public class ExternalOps {
         });
     }
 
-    public Customer getCustomer(final String customerName) {
+    public Customer getTrainerCustomer(final String customerName) {
+
         nessieClient.getCustomers(new NessieResultsListener() {
             @Override
             public void onSuccess(Object result, NessieException e) {
@@ -141,6 +151,7 @@ public class ExternalOps {
     }
 
     public Account getAccount(final Customer customer) {
+
         nessieClient.getAccounts(new NessieResultsListener() {
             @Override
             public void onSuccess(Object result, NessieException e) {
@@ -170,25 +181,29 @@ public class ExternalOps {
         transferBuilder.payee_id(trainerAccount.get_id());
         transferBuilder.amount(amount);
         transferBuilder.description("Personal Trainer Monthly Charge");
-        transferBuilder.transaction_date("September 10, 2015");
+        transferBuilder.transaction_date("September 30, 2015");
         transfer = transferBuilder.build();
     }
 
-    public boolean makeTransfer(double amount) {
+    public void makeTransfer(double amount) {
         buildTransfer(amount);
-        // Upload the transfer
         NessieResultsListener listener = new NessieResultsListener() {
             @Override
             public void onSuccess(Object o, NessieException e) {
-
+                if (e != null) {
+                    Log.e("Error", e.toString());
+                }
             }
         };
-
+        // Upload the transfer
         nessieClient.createTransfer(clientAccount.get_id(), transfer, listener);
-    return true;
-}
+    }
 
     public Account getClientAccount() {
         return getAccount(clientCustomer);
+    }
+
+    public Account getTrainerAccount() {
+        return getAccount(trainerCustomer);
     }
 }

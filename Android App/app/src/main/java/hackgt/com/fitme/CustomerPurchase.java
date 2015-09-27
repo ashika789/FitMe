@@ -68,19 +68,18 @@ public class CustomerPurchase extends Activity {
         nessieClient.createAccount();
         nessieClient.uploadAccount();
 
-        // Get trainer information - already on bank website
-        String trainerName = ((TextView) findViewById(R.id.tname)).getText().toString();
-        String price = ((TextView) findViewById(R.id.totalPay)).getText().toString();
-        Customer trainer = nessieClient.getCustomer(trainerName);
-        Account trainerAccount = nessieClient.getAccount(trainer);
-
-        Log.d("TRAINER : ", "$$$$$$$: "+ nessieClient.getAccount(trainer).getBalance());
-        Log.d("APP USER: ", "$$$$$$$: " + nessieClient.getClientAccount().getBalance());
-
-        // Make the transfer
-        nessieClient.makeTransfer(Double.parseDouble(price));
-
-        Log.d("TRAINER : ", "$$$$$$$: "+ nessieClient.getAccount(trainer).getBalance());
-        Log.d("APP USER: ", "$$$$$$$: " + nessieClient.getClientAccount().getBalance());
+//        // Get trainer information - already on bank website
+//        String trainerName = ((TextView) findViewById(R.id.tname)).getText().toString();
+//        String price = ((TextView) findViewById(R.id.totalPay)).getText().toString();
+//        Customer trainer = nessieClient.getTrainerCustomer(trainerName);
+//         Account trainerAccount = nessieClient.getAccount(trainer);
+//        Log.d("APP USER: ", "$$$$$$$: " + nessieClient.getClientAccount().getBalance());
+//        Log.d("TRAINER : ", "$$$$$$$: "+ nessieClient.getTrainerAccount().getBalance());
+//
+//        // Make the transfer
+//        nessieClient.makeTransfer(Double.parseDouble(price));
+//
+//        Log.d("TRAINER : ", "$$$$$$$: "+ nessieClient.getTrainerAccount().getBalance());
+//        Log.d("APP USER: ", "$$$$$$$: " + nessieClient.getClientAccount().getBalance());
     }
 }
