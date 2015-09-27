@@ -32,6 +32,10 @@
             android:name=".workouts"
             android:label="@string/title_activity_workouts" >
         </activity>
+        <activity
+            android:name=".trainerlist"
+            android:label="@string/title_activity_trainerlist" >
+        </activity>
     </application>
 
 </manifest>
