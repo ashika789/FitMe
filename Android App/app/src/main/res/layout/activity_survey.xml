@@ -22,7 +22,8 @@
         android:text="1) How fit are you?"
         android:id="@+id/fitLevel"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:textStyle="bold" />
 
     <RadioGroup
         android:layout_width="140dp"
@@ -64,7 +65,8 @@
         android:text="2) What do you plan on?"
         android:id="@+id/plan"
         android:layout_below="@+id/fit"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:textStyle="bold" />
 
     <RadioGroup
         android:layout_width="match_parent"
@@ -105,7 +107,8 @@
         android:text="3) When you usually work out, what do you do the most?"
         android:id="@+id/mostUsed"
         android:layout_below="@+id/gainW"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:textStyle="bold" />
 
     <RadioGroup
         android:layout_width="match_parent"
@@ -146,7 +149,8 @@
         android:text="4) What are your target areas?"
         android:id="@+id/target"
         android:layout_below="@+id/both"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:textStyle="bold" />
 
     <LinearLayout
         android:orientation="horizontal"
@@ -222,7 +226,7 @@
     </LinearLayout>
 
     <Button
-        android:layout_width="227dp"
+        android:layout_width="125dp"
         android:layout_height="wrap_content"
         android:text="Finish"
         android:id="@+id/finishSurvey"

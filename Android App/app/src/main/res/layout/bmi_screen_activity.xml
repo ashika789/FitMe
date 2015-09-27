@@ -11,11 +11,10 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:textAppearance="?android:attr/textAppearanceLarge"
-    android:text="Your BMI is:"
+    android:text="Your BMI is"
     android:id="@+id/bmiValue"
-    android:layout_marginTop="45dp"
     android:layout_alignParentTop="true"
-    android:layout_alignEnd="@+id/textView5" />
+    android:layout_alignStart="@+id/takeQuiz" />
 
 <TextView
     android:layout_width="wrap_content"
@@ -25,7 +24,8 @@
     android:id="@+id/textView5"
     android:singleLine="true"
     android:layout_below="@+id/bmiValue"
-    android:layout_centerHorizontal="true" />
+    android:layout_centerHorizontal="true"
+    android:textStyle="bold" />
 
 <ImageView
     android:layout_width="wrap_content"
@@ -51,7 +51,8 @@
     android:text="RESULTSBMI"
     android:id="@+id/resultbmi"
     android:layout_alignTop="@+id/result"
-    android:layout_toEndOf="@+id/result" />
+    android:textStyle="bold"
+    android:layout_alignParentEnd="true" />
 
 <TextView
     android:layout_width="wrap_content"
@@ -59,9 +60,10 @@
     android:textAppearance="?android:attr/textAppearanceLarge"
     android:text="Hmm..let&apos;s get to know you better!"
     android:id="@+id/textView6"
-    android:layout_marginTop="43dp"
-    android:layout_below="@+id/result"
-    android:layout_centerHorizontal="true" />
+    android:layout_gravity="center"
+    android:textStyle="italic"
+    android:layout_above="@+id/takeQuiz"
+    android:layout_alignParentEnd="true" />
 
 <Button
     android:layout_width="wrap_content"
