@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 public class Trainerlist extends Activity {
 
@@ -34,4 +35,17 @@ public class Trainerlist extends Activity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    public void trainerOne(View view) {
+
+    }
+
+    public void trainerTwo(View view) {
+
+    }
+
+    public void trainerThree(View view) {
+
+    }
+
 }
